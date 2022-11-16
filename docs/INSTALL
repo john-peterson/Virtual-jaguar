@@ -28,10 +28,11 @@ other OSs may work to but you may need to change some items in the Makefile.
 COMPILING:
 ----------
 
-Assuming that you meet the minimum software requirements, you can compile
-Virtual Jaguar by issuing the following command in the directory where you
-decompressed the source:
+This should work in Ubuntu in 2022:
 
+sudo apt install build-essential gcc-multilib git libusb-dev libncurses5-dev libpython3-dev python3-pip libsdl1.2-dev qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools
+export CPATH="/usr/include/x86_64-linux-gnu/qt5:/usr/include/x86_64-linux-gnu/qt5/QtWidgets:/usr/include/x86_64-linux-gnu/qt5/QtGui:/usr/include/x86_64-linux-gnu/qt5/QtCore"
+export CXXFLAGS="-fPIC"
 make
 
 Optionally you can manually strip virtualjaguar[.exe] to downsize the binary.
