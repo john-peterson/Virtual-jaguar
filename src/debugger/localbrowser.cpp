@@ -208,7 +208,7 @@ void LocalBrowserWindow::RefreshContents(void)
 						if ((LocalInfo[i].Op >= DBG_OP_reg0) && (LocalInfo[i].Op <= DBG_OP_reg31))
 						{
 							LocalInfo[i].PtrCPURegisterName = (char *)CPURegName[(LocalInfo[i].Op - DBG_OP_reg0)];
-							PtrValue = itoa(m68k_get_reg(NULL, (m68k_register_t)((size_t)M68K_REG_D0 + (LocalInfo[i].Op - DBG_OP_reg0))), Value1, 10);
+							sprintf(PtrValue, "%d", m68k_get_reg(NULL, (m68k_register_t)((size_t)M68K_REG_D0 + (LocalInfo[i].Op - DBG_OP_reg0))));
 						}
 						else
 						{

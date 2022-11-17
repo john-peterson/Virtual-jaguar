@@ -90,7 +90,7 @@
 #include "debugger/DBGManager.h"
 //#include "debugger/VideoWin.h"
 //#include "debugger/DasmWin.h"
-#include "debugger/m68KDasmWin.h"
+#include "debugger/m68kDasmWin.h"
 #include "debugger/GPUDasmWin.h"
 #include "debugger/DSPDasmWin.h"
 #include "debugger/memory1browser.h"

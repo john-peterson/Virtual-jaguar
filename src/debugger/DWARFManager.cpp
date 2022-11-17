@@ -22,8 +22,8 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
-#include <libdwarf.h>
-#include <dwarf.h>
+#include <libdwarf/libdwarf.h>
+#include <libdwarf/dwarf.h>
 #include "LEB128.h"
 
 
@@ -453,7 +453,8 @@ void DWARFManager_InitDMI(void)
 #else
 									sprintf(PtrCU[NbCU].PtrFullFilename, "%s/%s", ListSearchPaths[i], PtrCU[NbCU].PtrSourceFilename);
 #endif
-									if (!fopen_s(&SrcFile, PtrCU[NbCU].PtrFullFilename, "rb"))
+									SrcFile = fopen(PtrCU[NbCU].PtrFullFilename, "rb");
+									if (SrcFile)
 									{
 										PtrCU[NbCU].PtrSourceFileDirectory = (char *)realloc(PtrCU[NbCU].PtrSourceFileDirectory, strlen(ListSearchPaths[i]) + 1);
 										strcpy(PtrCU[NbCU].PtrSourceFileDirectory, ListSearchPaths[i]);
@@ -508,7 +509,8 @@ void DWARFManager_InitDMI(void)
 							}
 
 							// Open the source file as a binary file
-							if (!fopen_s(&SrcFile, PtrCU[NbCU].PtrFullFilename, "rb"))
+							SrcFile = fopen(PtrCU[NbCU].PtrFullFilename, "rb");
+							if (SrcFile)
 							{
 								if (!fseek(SrcFile, 0, SEEK_END))
 								{
@@ -519,7 +521,7 @@ void DWARFManager_InitDMI(void)
 											if (PtrCU[NbCU].PtrLoadSrc = Ptr = Ptr1 = (char *)calloc(1, (PtrCU[NbCU].SizeLoadSrc + 2)))
 											{
 												// Read whole file
-												if (fread_s(PtrCU[NbCU].PtrLoadSrc, PtrCU[NbCU].SizeLoadSrc, PtrCU[NbCU].SizeLoadSrc, 1, SrcFile) != 1)
+												if (fread(PtrCU[NbCU].PtrLoadSrc, PtrCU[NbCU].SizeLoadSrc, 1, SrcFile) != 1)
 												{
 													free(PtrCU[NbCU].PtrLoadSrc);
 													PtrCU[NbCU].PtrLoadSrc = NULL;

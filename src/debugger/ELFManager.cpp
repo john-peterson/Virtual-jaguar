@@ -14,12 +14,12 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include "libelf/libelf.h"
-#include "libelf/gelf.h"
-#include "libdwarf.h"
+#include "libelf.h"
+#include "gelf.h"
+#include "libdwarf/libdwarf.h"
 #include "log.h"
 #include "ELFManager.h"
-#include "DwarfManager.h"
+#include "DWARFManager.h"
 
 
 //#define LOG_SUPPORT					// Support log

@@ -16,9 +16,9 @@
 //
 
 #include "eeprom.h"
-#include <direct.h>
 #include <stdlib.h>
 #include <string.h>								// For memset
+#include <filesystem>
 #include "jaguar.h"
 #include "log.h"
 #include "settings.h"
@@ -134,7 +134,7 @@ static void EEPROMSave(void)
 	FILE * fp;
 
 	// Check if EEPROM directory exists and try to create it if not
-	if (_mkdir(vjs.EEPROMPath))
+	if (!std::filesystem::create_directory(vjs.EEPROMPath))
 	{
 		WriteLog("EEPROM: Could not create directory \"%s!\"\n", vjs.EEPROMPath);
 	}

@@ -5,7 +5,7 @@
 unsigned long ReadULEB128(char *addr)
 {
 	unsigned long result = 0;
-	size_t shift = 0;
+	unsigned int shift = 0;
 	unsigned char byte;
 
 	do
@@ -25,7 +25,7 @@ unsigned long ReadULEB128(char *addr)
 long ReadLEB128(char *addr)
 {
 	long result = 0;
-	size_t shift = 0;
+	unsigned int shift = 0;
 	unsigned char byte;
 
 	do

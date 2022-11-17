@@ -2,6 +2,7 @@
 #define __JAGUAR_H__
 
 #include <stdint.h>
+#include <cstddef>
 #include "memory.h"							// For "UNKNOWN" enum
 
 // Breakpoint struture

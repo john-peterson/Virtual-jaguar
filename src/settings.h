@@ -79,14 +79,14 @@ struct VJSettings
 	bool allowWritesToROM;										// Allow writing to ROM cartdridge
 	uint32_t biosType;											// Bios type used
 	uint32_t jaguarModel;										// Jaguar model
-	size_t nbrdisasmlines;										// Number of lines to show in the M68K tracing window
+	uint32_t nbrdisasmlines;										// Number of lines to show in the M68K tracing window
 	bool disasmopcodes;
 	bool displayHWlabels;
 	bool useFastBlitter;
 	bool displayFullSourceFilename;
 	bool ELFSectionsCheck;
-	size_t nbrmemory1browserwindow;								// Number of memory browser windows
-	size_t DRAM_size;											// DRAM size
+	uint32_t nbrmemory1browserwindow;								// Number of memory browser windows
+	uint32_t DRAM_size;											// DRAM size
 
 	// Keybindings in order of U, D, L, R, C, B, A, Op, Pa, 0-9, #, *
 	uint32_t p1KeyBindings[21];
